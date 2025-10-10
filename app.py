@@ -3,8 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 import openai
 
-openai.api_key = os.getenv("OPEN_AI_KEY"
-)
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     file = await update.message.photo[-1].get_file()
@@ -25,7 +24,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     tts = openai.audio.speech.create(
         model="gpt-4o-mini-tts",
-        voice="alloy",   # British accent
+        voice="alloy",
         input=answer
     )
     audio = io.BytesIO(tts.read())
@@ -34,7 +33,8 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(answer)
     await update.message.reply_voice(voice=audio)
 
-app = ApplicationBuilder().token(os.getenv(8403658742:AAGRvDwr4KI4ni6aTwTAQS423Grbjvy7AlU)).build()
+# ✅ Correct usage of environment variable
+app = ApplicationBuilder().token(os.getenv("TELEGRAM_TOKEN")).build()
 app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
 
 if __name__ == "__main__":
