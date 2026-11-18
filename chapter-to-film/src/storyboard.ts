@@ -18,7 +18,8 @@ Length: the narration of all scenes together should run 1,500 to 2,100 words, ab
 
 export async function writeStoryboard(chapter: string, opts: { maxVideoClips: number; language?: string }) {
   const client = new Anthropic();
-  const response = await client.beta.messages.parse({
+  // Streamed: a full storyboard can take several minutes to write.
+  const stream = client.beta.messages.stream({
     model: "claude-opus-5-5",
     max_tokens: 32000,
     output_config: { effort: "high", format: zodOutputFormat(Storyboard) },
@@ -31,6 +32,7 @@ export async function writeStoryboard(chapter: string, opts: { maxVideoClips: nu
     ),
     messages: [{ role: "user", content: `<chapter>\n${chapter}\n</chapter>` }],
   });
+  const response = await stream.finalMessage();
   if (response.stop_reason === "refusal") throw new Error("Claude declined to adapt this chapter.");
   if (response.stop_reason === "max_tokens") throw new Error("The storyboard was cut off; the chapter may be too long for one film.");
   if (!response.parsed_output) throw new Error("Claude returned a storyboard that does not match the expected format.");
