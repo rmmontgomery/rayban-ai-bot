@@ -1,0 +1,18 @@
+{
+  "extraKnownMarketplaces": {
+    "superpowers-dev": {
+      "source": { "source": "github", "repo": "obra/superpowers" }
+    },
+    "impeccable": {
+      "source": { "source": "github", "repo": "pbakaus/impeccable" }
+    },
+    "thedotmack": {
+      "source": { "source": "github", "repo": "thedotmack/claude-mem" }
+    }
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-dev": true,
+    "impeccable@impeccable": true,
+    "claude-mem@thedotmack": true
+  }
+}

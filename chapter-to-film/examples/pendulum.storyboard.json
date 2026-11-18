@@ -1,0 +1,22 @@
+{
+  "title": "The Simple Pendulum",
+  "field": "classical mechanics",
+  "scenes": [
+    { "type": "title", "heading": "The Simple Pendulum", "subheading": "From Galileo's lamp to the equation of motion", "narration": "A weight on a string is the oldest clock we have. In this chapter we derive its motion, and find where the simple answer stops being true." },
+    { "type": "timeline", "heading": "Three centuries of the pendulum", "narration": "Galileo noticed that a swinging lamp keeps time. Huygens turned that into a clock, and Foucault used a pendulum to show the Earth turning.", "events": [
+      { "when": "1602", "what": "Galileo studies isochronism" },
+      { "when": "1656", "what": "Huygens builds the pendulum clock" },
+      { "when": "1851", "what": "Foucault demonstrates the Earth's rotation" } ] },
+    { "type": "simulation", "heading": "A small swing", "kind": "pendulum", "a": 20, "b": 0.8, "caption": "Released from 20 degrees", "narration": "Release the bob from a small angle. Gravity pulls it back toward the vertical, it overshoots, and the cycle repeats." },
+    { "type": "derivation", "heading": "Equation of motion", "narration": "Start from the torque about the pivot. Divide by the moment of inertia. For small angles the sine of theta is close to theta, and we are left with simple harmonic motion, whose period depends only on length and gravity.", "steps": [
+      { "latex": "m L^2 \\ddot{\\theta} = -m g L \\sin\\theta", "note": "torque about the pivot" },
+      { "latex": "\\ddot{\\theta} = -\\frac{g}{L}\\sin\\theta", "note": "divide by m L squared" },
+      { "latex": "\\ddot{\\theta} \\approx -\\frac{g}{L}\\,\\theta", "note": "small angles" },
+      { "latex": "T = 2\\pi\\sqrt{\\frac{L}{g}}", "note": "the period" } ] },
+    { "type": "simulation", "heading": "Projectile", "kind": "projectile", "a": 50, "b": 0.8, "caption": "Launch at 50 degrees", "narration": "Cut the string at the bottom of the swing and the bob becomes a projectile, tracing a parabola." },
+    { "type": "simulation", "heading": "Kepler orbits", "kind": "orbit", "a": 0.5, "b": 2, "caption": "Eccentricity 0.5", "narration": "The same inverse square gravity bends a planet's path into an ellipse, fastest when closest to the sun." },
+    { "type": "simulation", "heading": "Interference", "kind": "wave", "a": 2, "b": 0.5, "caption": "Two sources in phase", "narration": "Two sources of waves reinforce along some lines and cancel along others." },
+    { "type": "simulation", "heading": "Damped spring", "kind": "spring", "a": 0.3, "b": 0.6, "caption": "Light damping", "narration": "With friction, each swing is a little smaller than the last." },
+    { "type": "illustrated", "heading": "The lamp in the cathedral of Pisa", "imagePrompt": "A bronze lamp swinging on a long chain inside a dim Romanesque cathedral, oil painting, warm light", "narration": "The story goes that Galileo timed the lamp against his own pulse." }
+  ]
+}
