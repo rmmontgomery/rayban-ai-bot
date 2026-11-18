@@ -1,0 +1,33 @@
+{
+  "name": "chapter-to-film",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Turns a book chapter into a 10-15 minute narrated film: derivations, physics simulations, illustrated narration and AI video.",
+  "scripts": {
+    "film": "tsx src/cli.ts",
+    "studio": "remotion studio src/video/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.10.0",
+    "@fal-ai/client": "^1.11.0",
+    "@remotion/bundler": "^4.0.545",
+    "@remotion/cli": "^4.0.545",
+    "@remotion/renderer": "^4.0.545",
+    "dotenv": "^18.0.10",
+    "katex": "^0.19.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.545",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.8",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
